@@ -1,21 +1,29 @@
 import React, { Component } from 'react';
+import PieChart from './PieChart';
 
 class ProgramParticipants extends Component {
     state = {}
     render() { 
-        let programName;
+        let programName = [];
         let firstName; 
         let lastName;
+        let totalParticipants = 0;
         return ( 
             <div>
                 {this.props.programParticipants.map((allParticipantsinPrograms, index) => {
                     for (var programKey in allParticipantsinPrograms) {
                         if (allParticipantsinPrograms.hasOwnProperty(programKey)) {
                             let participantsPerProgram = allParticipantsinPrograms[programKey];
-                            //return (<h2> program name </h2>)
+                            totalParticipants = totalParticipants + participantsPerProgram.length;
+            
+                            // this.props.programs.map((program,index)=> {
+                            //     if(program.id = programKey){
+                            //         programName.push(program.eventName);
+                            //     }
+                            // })
+                            // return (<h2> {programName} </h2>)
                             var results = participantsPerProgram.map((eachParticipant, index) => {
-                                    console.log("each participant", eachParticipant)
-                                    //programName = "program Name";
+                                    
                                     firstName = eachParticipant.firstName;
                                     lastName = eachParticipant.lastName;
                                     return (
@@ -35,6 +43,7 @@ class ProgramParticipants extends Component {
                     return(
                         <div>
                             {results}
+                            <PieChart monthlyParticipants={totalParticipants} programs={this.props.programs.length}  />
                         </div>
                     )
                 })}

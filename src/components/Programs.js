@@ -24,11 +24,8 @@ class Programs extends Component {
       axios.get(`/participants/program/${i}`).then(response => {
         const newParticipants = response.data;
         const programParticipants = [...this.state.programParticipants];
-        // newParticipants.forEach(participant => {
         const participant = { [i]: newParticipants };
         programParticipants.push(participant);
-        // });
-        console.log(i);
         this.setState({ programParticipants: programParticipants });
         console.log("participant program", programParticipants);
       });
@@ -42,30 +39,21 @@ class Programs extends Component {
   render() {
     return (
       <div>
+        <div className="programs-wrapper">
         <h1> Upcoming Programs</h1>
 
         {this.state.programs.map((program, index) => {
           return <Program key={index} program={program.eventName} />;
         })}
+        </div>
+        <div className="participants-wrapper">
         <h2> Who came this month: </h2>
 
         <ProgramParticipants
           programParticipants={this.state.programParticipants}
           programs={this.state.programs}
         />
-
-        {/* {this.state.programParticipants.forEach((participants, index) => {
-          participants.map((participant, index) => {
-            console.log("participant singluar", participant.firstName);
-            return (
-              <ProgramParticipants
-                key={index}
-                ppFirstName={participant.firstName}
-                ppLastName={participant.lastName}
-              />
-            );
-          });
-        })} */}
+        </div>
       </div>
     );
   }
