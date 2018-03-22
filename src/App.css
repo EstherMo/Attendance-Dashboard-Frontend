@@ -29,7 +29,7 @@
 }
 
 .participants-wrapper {
-  float: left;
+  float: right;
   width: 30%;
   height: 400px;
   overflow: scroll;
@@ -38,9 +38,19 @@
 }
 
 .chart-wrapper {
-  padding: 70px 0;
-  width: 30%;
+  padding: 40px 0;
+  width: 35%;
   border: 3px solid green;
-  float: right;
-  /* text-align: center; */
+  float: left;
+  text-align: center;
+}
+
+.headers {
+  color: black;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  font-weight: bold;
+}
+
+.text{
+  color: #376A7D;
 }

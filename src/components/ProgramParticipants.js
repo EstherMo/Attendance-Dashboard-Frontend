@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PieChart from "./PieChart";
 
 class ProgramParticipants extends Component {
   constructor() {
@@ -10,13 +9,11 @@ class ProgramParticipants extends Component {
   }
 
   setMainTotal() {
-    console.log("in child set total", this.state.totalParticipants);
     this.props.action(this.state.totalParticipants);
   }
 
   componentDidMount = () => {
-    this.setState({ totalParticipants: 15 }, function() {
-      console.log("in component did mountnt", this.state.totalParticipants);
+    this.setState({ totalParticipants: 75 }, function() {
       this.setMainTotal();
     });
   };
@@ -47,8 +44,8 @@ class ProgramParticipants extends Component {
                     firstName = eachParticipant.firstName;
                     lastName = eachParticipant.lastName;
                     return (
-                      <div key={index}>
-                        <h4>{firstName + " " + lastName}</h4>
+                      <div key={index} className="text">
+                        <h4> ✅ {firstName + " " + lastName}</h4>
                       </div>
                     );
                   }

@@ -4,8 +4,8 @@ class Program extends Component {
   state = {};
   render() {
     return (
-      <div>
-        <h3> {this.props.program} </h3>
+      <div className="text">
+        <h4> 📢 {this.props.program} </h4>
       </div>
     );
   }

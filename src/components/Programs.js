@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Program from "./Program";
 import ProgramParticipants from "./ProgramParticipants";
 import axios from "axios";
-import PieChart from './PieChart';
+import BarChart from './BarChart';
 
 class Programs extends Component {
   constructor() {
@@ -49,14 +49,14 @@ class Programs extends Component {
     return (
       <div>
         <div className="programs-wrapper">
-        <h1> Upcoming Programs</h1>
+        <h2 className="headers"> Upcoming Programs</h2>
 
         {this.state.programs.map((program, index) => {
           return <Program key={index} program={program.eventName} />;
         })}
         </div>
         <div className="participants-wrapper">
-        <h2> Who Was Here This Month: </h2>
+        <h2 className="headers"> Who Was Here This Month: </h2>
 
         <ProgramParticipants
           programParticipants={this.state.programParticipants}
@@ -64,7 +64,7 @@ class Programs extends Component {
           action={this.setTotal}
         />
         </div>
-        <PieChart monthlyParticipants={this.state.totalParticipants} programs={this.state.programs.length}  />
+        <BarChart monthlyParticipants={this.state.totalParticipants} programs={this.state.programs.length}  />
       </div>
     );
   }
