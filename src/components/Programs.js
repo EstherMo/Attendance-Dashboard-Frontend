@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import Program from "./Program";
 import ProgramParticipants from "./ProgramParticipants";
 import axios from "axios";
+import PieChart from './PieChart';
 
 class Programs extends Component {
   constructor() {
     super();
     this.state = {
       programs: [],
-      programParticipants: []
+      programParticipants: [],
+      totalParticipants: 0
     };
+
   }
 
   getPrograms = () => {
@@ -36,6 +39,12 @@ class Programs extends Component {
     this.getProgramParticipants();
   }
 
+  //this method will be sent to programParticipants componenet in order to change the state
+  setTotal = (total) => {
+    this.setState({
+        totalParticipants: total
+    });
+}
   render() {
     return (
       <div>
@@ -47,13 +56,15 @@ class Programs extends Component {
         })}
         </div>
         <div className="participants-wrapper">
-        <h2> Who came this month: </h2>
+        <h2> Who Was Here This Month: </h2>
 
         <ProgramParticipants
           programParticipants={this.state.programParticipants}
           programs={this.state.programs}
+          action={this.setTotal}
         />
         </div>
+        <PieChart monthlyParticipants={this.state.totalParticipants} programs={this.state.programs.length}  />
       </div>
     );
   }
