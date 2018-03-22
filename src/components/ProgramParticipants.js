@@ -19,33 +19,28 @@ class ProgramParticipants extends Component {
   };
 
   render() {
-    let firstName;
-    let lastName;
     let total;
+    let programName = [];
     return (
       <div>
         {this.props.programParticipants.map(
           (allParticipantsinPrograms, index) => {
             for (var programKey in allParticipantsinPrograms) {
               if (allParticipantsinPrograms.hasOwnProperty(programKey)) {
-                let participantsPerProgram =
-                  allParticipantsinPrograms[programKey];
-                total =
-                  this.state.totalParticipants + participantsPerProgram.length;
-                //this.props.action(totalParticipants);
-                // this.props.programs.map((program,index)=> {
+                let participantsPerProgram = allParticipantsinPrograms[programKey];
+                total = this.state.totalParticipants + participantsPerProgram.length;
+                // push program names to an array-- not used yet
+                // programName = this.props.programs.map((program,index)=> {
                 //     if(program.id = programKey){
                 //         programName.push(program.eventName);
+                //         console.log("program",program);
                 //     }
                 // })
-                // return (<h2> {programName} </h2>)
                 var results = participantsPerProgram.map(
                   (eachParticipant, index) => {
-                    firstName = eachParticipant.firstName;
-                    lastName = eachParticipant.lastName;
                     return (
                       <div key={index} className="text">
-                        <h4> ✅ {firstName + " " + lastName}</h4>
+                        <h4> ✅ {eachParticipant.firstName + " " + eachParticipant.lastName}</h4>
                       </div>
                     );
                   }

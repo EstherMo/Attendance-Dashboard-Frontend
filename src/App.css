@@ -24,23 +24,23 @@
 .programs-wrapper {
   float: left;
   width: 30%;
-  border: 3px solid #73ad21;
+  /* border: 3px solid #73ad21; */
   padding: 10px;
 }
 
 .participants-wrapper {
   float: right;
-  width: 30%;
+  width: 31%;
   height: 400px;
   overflow: scroll;
-  border: 3px solid #73ad21;
+  /* border: 3px solid #73ad21; */
   padding: 10px;
 }
 
 .chart-wrapper {
-  padding: 40px 0;
+  padding: 45px 0;
   width: 35%;
-  border: 3px solid green;
+  /* border: 3px solid green; */
   float: left;
   text-align: center;
 }
@@ -51,6 +51,6 @@
   font-weight: bold;
 }
 
-.text{
-  color: #376A7D;
+.text {
+  color: #376a7d;
 }

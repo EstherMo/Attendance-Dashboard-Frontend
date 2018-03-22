@@ -30,7 +30,6 @@ class Programs extends Component {
         const participant = { [i]: newParticipants };
         programParticipants.push(participant);
         this.setState({ programParticipants: programParticipants });
-        console.log("participant program", programParticipants);
       });
     }
   };
@@ -39,7 +38,7 @@ class Programs extends Component {
     this.getProgramParticipants();
   }
 
-  //this method will be sent to programParticipants componenet in order to change the state
+  //this method will be sent to programParticipants component in order to change the state
   setTotal = (total) => {
     this.setState({
         totalParticipants: total
@@ -49,7 +48,7 @@ class Programs extends Component {
     return (
       <div>
         <div className="programs-wrapper">
-        <h2 className="headers"> Upcoming Programs</h2>
+        <h2 className="headers"> Upcoming Programs </h2>
 
         {this.state.programs.map((program, index) => {
           return <Program key={index} program={program.eventName} />;
